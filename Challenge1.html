@@ -1,0 +1,170 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            function validateform() {
+              var UserEmail = document.myform.name.value;
+              var password = document.myform.password.value;
+              var a = document.getElementById("submit").value;
+        
+              if (UserEmail == null || UserEmail == "") {
+                alert("abc@gmail.com");
+                return false;
+              }
+              else if (password.length < 8) {
+                alert("Password must be atleast 8 characters");
+                return false;
+              }
+              else if(password.search(/[A-Z]/)<0){
+                alert("Password must have one Uppercase letter");
+                return false;
+              }
+              else if(password.search(/[0-9]/)<0)
+              {
+                alert("Password must have numbers");
+                return false;
+              }
+        
+                else if(password.search(/[!,@,#,$,*]/)<0){
+                    alert("password must have one special characters!");
+                    return false;
+                }
+              if (a != null)
+                alert("register successfully");
+              return false;
+            }
+        
+          </script>
+          <style>
+            @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+        }
+        html,body{
+          display: grid;
+          height: 100%;
+          width: 100%;
+          place-items: center;
+          background: #f2f2f2;
+        }
+        ::selection{
+          background: #4158d0;
+          color: #fff;
+        }
+        .wrapper{
+          width: 380px;
+          background: #fff;
+          border-radius: 15px;
+          box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+        }
+        .wrapper .title{
+          font-size: 35px;
+          font-weight: 600;
+          text-align: center;
+          line-height: 100px;
+          color: #fff;
+          user-select: none;
+          border-radius: 15px 15px 0 0;
+          background: linear-gradient(-135deg, #c850c0, #4158d0);
+        }
+        .wrapper form{
+          padding: 10px 30px 50px 30px;
+        }
+        .wrapper form .field{
+          height: 50px;
+          width: 100%;
+          margin-top: 20px;
+          position: relative;
+        }
+        .wrapper form .field input{
+          height: 100%;
+          width: 100%;
+          outline: none;
+          font-size: 17px;
+          padding-left: 20px;
+          border: 1px solid lightgrey;
+          border-radius: 25px;
+          transition: all 0.3s ease;
+        }
+        .wrapper form .field input:focus,
+        form .field input:valid{
+          border-color: #4158d0;
+        }
+        .wrapper form .field label{
+          position: absolute;
+          top: 50%;
+          left: 20px;
+          color: #999999;
+          font-weight: 400;
+          font-size: 17px;
+          pointer-events: none;
+          transform: translateY(-50%);
+          transition: all 0.3s ease;
+        }
+        form .field input:focus ~ label,
+        form .field input:valid ~ label{
+          top: 0%;
+          font-size: 16px;
+          color: #4158d0;
+          background: #fff;
+          transform: translateY(-50%);
+        }
+        form .content{
+          display: flex;
+          width: 100%;
+          height: 50px;
+          font-size: 16px;
+          align-items: center;
+          justify-content: space-around;
+        }
+        form .field input[type="submit"]{
+          color: #fff;
+          border: none;
+          padding-left: 0;
+          margin-top: -10px;
+          font-size: 20px;
+          font-weight: 500;
+          cursor: pointer;
+          background: linear-gradient(-135deg, #c850c0, #4158d0);
+          transition: all 0.3s ease;
+        }
+        form .field input[type="submit"]:active{
+          transform: scale(0.95);
+        }
+        </style>
+</head>
+<body>
+<div class="wrapper">   
+    <form name="myform" method="post" onsubmit="return validateform()">
+        <center style="padding-top:40px">
+     <table border="1">  
+    
+        <div class="title">
+           <span><h1>Sign Up</h1></span>
+        </div>
+        <br>
+        <br>
+           <div class="field">
+              <input type="email" name="name" required> 
+              <label>User Email</label>
+           </div>
+           <br>
+           <div class="field">
+                <input type="password" name="password" required>
+                <label>Password</label>
+           </div>
+           <br>
+           <div class="field">
+              <input type="submit" name="submit" id="submit" value="Login" onsubmit="return validateform()">
+           </div>
+        </div>
+        </table>
+        </form>
+</body>
+</html>
